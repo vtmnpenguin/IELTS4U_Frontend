@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kiểm tra email | IELTS4U</title>
+    <link rel="stylesheet" href="../css/auth.css" />
+  </head>
+  <body>
+    <main class="auth-page auth-page-full">
+      <section class="auth-hero">
+        <div class="auth-hero-inner">
+          <a class="brand" href="onboarding.html"
+            ><img src="../images/logo.png" alt="IELTS4U"
+          /></a>
+          <div class="auth-heading">
+            <div class="round-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#8A9B83"
+                stroke-width="2.2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <rect x="2" y="4" width="20" height="16" rx="2" />
+                <path d="M2 6l10 7 10-7" />
+              </svg>
+            </div>
+            <h1 id="checkEmailTitle">KIỂM TRA HỘP THƯ CỦA BẠN</h1>
+            <p id="checkEmailMessage">
+              Chúng tôi đã gửi email xác thực đến địa chỉ email bạn vừa đăng ký.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="auth-form-section">
+        <div class="auth-form-inner" style="text-align: center">
+          <div class="notice-banner" id="resendNotice" role="alert" hidden>
+            <span class="notice-icon" id="resendNoticeIcon"></span>
+            <span class="notice-text" id="resendNoticeText"></span>
+          </div>
+          <button class="primary-btn" id="resendButton" type="button">
+            Gửi lại email
+          </button>
+          <div class="resend-confirm" id="resendStatus" hidden>
+            <svg
+              class="resend-confirm-icon"
+              viewBox="0 0 20 20"
+              width="15"
+              height="15"
+              aria-hidden="true"
+            >
+              <circle cx="10" cy="10" r="10" fill="currentColor" />
+              <path
+                d="M6 10.2l2.4 2.4L14 7"
+                stroke="#fff"
+                stroke-width="2"
+                fill="none"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+            <span id="resendStatusText"></span>
+          </div>
+          <div class="message-links">
+            <a id="changeEmailAction" href="register.html">Đổi email</a
+            >&nbsp;&nbsp;&nbsp;&nbsp;<a href="login.html">Quay lại</a>
+          </div>
+          <p style="margin-top: 16px; font-size: 12px">
+            <a id="continueEmailAction" href="verify-result.html"
+              >Mô phỏng mở email xác thực</a
+            >
+          </p>
+        </div>
+      </section>
+    </main>
+    <script src="../js/auth.js"></script>
+  </body>
+</html>

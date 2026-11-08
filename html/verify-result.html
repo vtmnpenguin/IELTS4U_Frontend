@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kết quả xác thực | IELTS4U</title>
+    <link rel="stylesheet" href="../css/auth.css" />
+  </head>
+  <body>
+    <main class="auth-page auth-page-full">
+      <section class="auth-hero">
+        <div class="auth-hero-inner">
+          <a class="brand" href="onboarding.html"
+            ><img src="../images/logo.png" alt="IELTS4U"
+          /></a>
+          <div class="auth-heading">
+            <div class="round-icon result-success" id="resultIcon">
+              <svg
+                viewBox="0 0 24 24"
+                width="26"
+                height="26"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <circle cx="9" cy="8" r="3" />
+                <path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6" />
+                <path d="M15 13l2 2 4-4" />
+              </svg>
+            </div>
+            <h1 id="resultTitle">TÀI KHOẢN ĐÃ ĐƯỢC KÍCH HOẠT</h1>
+            <p id="resultText">Email của bạn đã được xác thực thành công.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="auth-form-section">
+        <div class="auth-form-inner" style="text-align: center">
+          <a
+            class="primary-btn button-link"
+            id="resultAction"
+            href="learning-goal.html"
+            >Tiếp tục</a
+          >
+        </div>
+      </section>
+    </main>
+    <script src="../js/auth.js"></script>
+    <script>
+      const params = new URLSearchParams(location.search);
+      const isFailure = params.get("status") === "failed";
+      if (isFailure) {
+        const icon = document.getElementById("resultIcon");
+        icon.classList.remove("result-success");
+        icon.classList.add("result-fail");
+        icon.innerHTML = `<svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6 1.4 0 2.7.4 3.8 1.1"/><circle cx="18" cy="16" r="4"/><path d="M15.5 13.5l5 5"/></svg>`;
+        document.getElementById("resultTitle").textContent =
+          "LIÊN KẾT ĐÃ HẾT HẠN HOẶC KHÔNG HỢP LỆ";
+        document.getElementById("resultText").textContent =
+          "Hãy yêu cầu gửi lại email xác thực";
+        document.getElementById("resultAction").textContent = "Gửi lại email";
+        document.getElementById("resultAction").href = "check-email.html";
+      } else {
+        const account = JSON.parse(
+          localStorage.getItem("demoAccount") || "null",
+        );
+        if (account) {
+          account.verified = true;
+          localStorage.setItem("demoAccount", JSON.stringify(account));
+        }
+        sessionStorage.removeItem("verifyLinkExpiresAt");
+        document.getElementById("resultText").textContent =
+          "Tự chuyển sau 3 giây...";
+        document.getElementById("resultAction").textContent = "Tiếp tục";
+        document.getElementById("resultAction").href = "learning-goal.html";
+        setTimeout(() => {
+          location.href = "learning-goal.html";
+        }, 3000);
+      }
+    </script>
+  </body>
+</html>

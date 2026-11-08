@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Đăng nhập | IELTS4U</title>
+    <link rel="stylesheet" href="../css/auth.css" />
+  </head>
+  <body>
+    <main class="auth-page auth-page-full">
+      <section class="auth-hero">
+        <div class="auth-hero-inner">
+          <a class="brand" href="onboarding.html"
+            ><img src="../images/logo.png" alt="IELTS4U"
+          /></a>
+          <div class="auth-heading">
+            <div class="round-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#8A9B83"
+                stroke-width="2.6"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M22 10L12 5 2 10l10 5 10-5z" />
+                <path d="M6 12v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5" />
+                <path d="M22 10v6" />
+              </svg>
+            </div>
+            <h1>CHÀO MỪNG BẠN TRỞ LẠI!</h1>
+            <p>Đăng nhập để tiếp tục hành trình chinh phục IELTS</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="auth-form-section">
+        <div class="auth-form-inner">
+          <form id="loginForm" novalidate>
+            <div class="notice-banner" id="loginNotice" role="alert" hidden>
+              <span class="notice-icon" id="loginNoticeIcon"></span>
+              <span class="notice-text" id="loginNoticeText"></span>
+              <button
+                class="notice-action"
+                id="loginNoticeAction"
+                type="button"
+                hidden
+              ></button>
+            </div>
+            <label for="email">Email</label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              placeholder="name@example.com"
+              autocomplete="email"
+            />
+            <small class="error" id="emailError"></small>
+
+            <label for="password">Mật khẩu</label>
+            <div class="password-wrap">
+              <input
+                id="password"
+                name="password"
+                type="password"
+                placeholder="Tối thiểu 8 ký tự"
+                autocomplete="current-password"
+              />
+              <button
+                class="show-password"
+                type="button"
+                data-target="password"
+                aria-label="Hiện mật khẩu"
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  width="18"
+                  height="18"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z" />
+                  <circle cx="12" cy="12" r="3" />
+                </svg>
+              </button>
+            </div>
+            <small class="error" id="passwordError"></small>
+
+            <div class="form-extra">
+              <a href="forgot-password.html">Quên mật khẩu?</a>
+            </div>
+            <button class="primary-btn" id="loginButton" type="submit">
+              Đăng nhập
+            </button>
+          </form>
+
+          <div class="separator"><span>HOẶC</span></div>
+          <button class="google-btn" id="googleLogin" type="button">
+            <span class="google-g">G</span> Đăng nhập bằng Google
+          </button>
+          <p class="switch-page">
+            Chưa có tài khoản? <a href="register.html">Đăng kí</a>
+          </p>
+        </div>
+      </section>
+    </main>
+    <script src="../js/auth.js"></script>
+    <script src="../js/login.js"></script>
+  </body>
+</html>

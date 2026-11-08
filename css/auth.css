@@ -1,0 +1,533 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --cream: #f2e3cc;
+  --page: #f8f4ec;
+  --brown: #49382b;
+  --muted: #806e5c;
+  --orange: #c77b32;
+  --orange-dark: #a85f25;
+  --line: #dfd2c2;
+  --red: #d93025;
+}
+body {
+  font-family: Arial, sans-serif;
+  background: var(--page);
+  color: var(--brown);
+  min-height: 100vh;
+}
+a {
+  color: var(--orange-dark);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+.auth-page {
+  width: 100%;
+  min-height: 100vh;
+  padding: 28px 6%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.brand {
+  align-self: flex-start;
+  margin-bottom: 24px;
+}
+.brand img {
+  width: 145px;
+  height: auto;
+  object-fit: contain;
+}
+.auth-card,
+.message-card {
+  width: min(100%, 470px);
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(73, 56, 43, 0.08);
+  overflow: hidden;
+}
+.auth-card {
+  padding: 32px 38px;
+}
+.register-card {
+  width: min(100%, 510px);
+  padding: 25px 38px;
+}
+
+/* ===== Two-tone header (cream) used on login.html — makes the card look
+   like Image 1: a cream top band (logo + icon + heading) sitting on top
+   of the plain white form area. Bleeds out of .auth-card's own padding
+   with a negative margin, then re-pads itself, so every other page that
+   still uses .auth-card without a .card-header is unaffected. ===== */
+.card-header {
+  margin: -32px -38px 24px;
+  padding: 30px 38px 24px;
+  background: var(--cream);
+  border-radius: 12px 12px 0 0;
+  display: flex;
+  flex-direction: column;
+}
+.card-header .brand {
+  align-self: flex-start;
+  margin-bottom: 18px;
+}
+.card-header .auth-heading {
+  margin-bottom: 0;
+}
+.card-header .round-icon {
+  background: #fff;
+}
+
+/* ===== "split" card — dùng cho các trang thông báo đơn giản (kiểm tra
+   email, kết quả xác thực, mục tiêu học tập): cùng một thẻ auth-card,
+   nhưng header kem và phần nội dung trắng mỗi phần tự có padding riêng
+   (không dùng margin âm) nên không phụ thuộc padding mặc định của
+   .auth-card — tránh đụng với kiểu .card-header full-bleed ở trên. ===== */
+.auth-card.split {
+  padding: 0;
+}
+.auth-card.split .card-header {
+  margin: 0;
+  padding: 30px 38px 24px;
+  text-align: center;
+}
+.card-body-plain {
+  padding: 30px 38px 36px;
+  text-align: center;
+}
+.card-body-plain .primary-btn {
+  margin-top: 4px;
+}
+
+/* ===== Full-bleed version, used on login.html (add class "auth-page-full"
+   to <main>). Instead of a small card floating on the page background, the
+   cream header and the white form section each stretch the full width AND
+   height of the viewport — no gray margin around the edges, exactly like
+   the SCR-02 reference. ===== */
+.auth-page.auth-page-full {
+  padding: 0;
+  align-items: stretch;
+  flex-direction: column;
+}
+.auth-hero {
+  position: relative;
+  width: 100%;
+  background: var(--cream);
+  display: flex;
+  justify-content: center;
+  padding: 56px 20px 48px;
+}
+.auth-hero-inner {
+  width: 100%;
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+}
+.auth-hero-inner .brand {
+  position: absolute;
+  top: 28px;
+  left: 28px;
+  margin: 0;
+}
+.auth-hero-inner .auth-heading {
+  margin-bottom: 0;
+}
+.auth-hero .round-icon {
+  background: #fff;
+}
+.round-icon svg {
+  width: 22px;
+  height: 22px;
+}
+.auth-form-section {
+  width: 100%;
+  flex: 1;
+  background: #fff;
+  display: flex;
+  justify-content: center;
+  padding: 40px 20px 56px;
+}
+.auth-form-inner {
+  width: 100%;
+  max-width: 480px;
+}
+
+.auth-heading {
+  text-align: center;
+  margin-bottom: 25px;
+}
+.auth-heading h1,
+.message-card h1 {
+  font-size: 20px;
+  line-height: 1.4;
+  color: #241b15;
+  margin-bottom: 8px;
+}
+.auth-heading p,
+.message-card p {
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--muted);
+}
+.round-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #f3eadb;
+  color: var(--orange);
+  display: grid;
+  place-items: center;
+  font-size: 23px;
+  margin: 0 auto 14px;
+}
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+form > label {
+  font-size: 13px;
+  font-weight: 700;
+  margin-top: 7px;
+}
+input:not([type="checkbox"]):not([type="radio"]),
+select {
+  width: 100%;
+  height: 42px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 0 12px;
+  font: 14px Arial;
+  background: #fff;
+  color: var(--brown);
+  outline: none;
+}
+input:focus,
+select:focus {
+  border-color: var(--orange);
+  box-shadow: 0 0 0 2px rgba(199, 123, 50, 0.12);
+}
+.password-wrap {
+  position: relative;
+}
+.password-wrap input {
+  padding-right: 55px !important;
+}
+.show-password {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 0;
+  background: none;
+  color: var(--muted);
+  font-size: 11px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 4px;
+}
+.show-password:hover {
+  color: var(--orange);
+}
+.error {
+  min-height: 0;
+  color: var(--red);
+  font-size: 11px;
+}
+.form-extra {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 12px;
+  margin: 2px 0 8px;
+}
+.primary-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 42px;
+  border: 0;
+  border-radius: 6px;
+  background: var(--orange);
+  color: #fff;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: 0.2s;
+}
+.primary-btn:hover {
+  background: var(--orange-dark);
+  text-decoration: none;
+}
+.primary-btn:disabled {
+  opacity: 0.65;
+  cursor: wait;
+}
+.separator {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 20px 0;
+  color: #9b8b7a;
+  font-size: 11px;
+}
+.separator:before,
+.separator:after {
+  content: "";
+  height: 1px;
+  background: var(--line);
+  flex: 1;
+}
+.google-btn {
+  height: 43px;
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: #fff;
+  color: var(--brown);
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.google-btn:hover {
+  background: #faf8f4;
+}
+.google-g {
+  font-size: 20px;
+  font-weight: 800;
+  color: #4285f4;
+}
+.switch-page {
+  text-align: center;
+  font-size: 12px;
+  margin-top: 22px;
+}
+.switch-page a {
+  font-weight: 700;
+}
+.message-card {
+  margin: auto;
+  text-align: center;
+  padding: 42px 38px;
+}
+.message-card .round-icon {
+  width: 58px;
+  height: 58px;
+}
+.email-display {
+  font-weight: 700;
+  margin: 8px 0 14px;
+}
+.countdown {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 10px;
+}
+.resend-confirm {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  border: 1.5px solid #39a935;
+  background: #eaf7e8;
+  color: #2e7d32;
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 8px;
+  padding: 8px 12px;
+  margin-top: 10px;
+}
+.resend-confirm[hidden] {
+  display: none;
+}
+.link-expiry-note {
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 10px;
+}
+@keyframes pulseAttention {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(199, 123, 50, 0.55);
+  }
+  50% {
+    box-shadow: 0 0 0 9px rgba(199, 123, 50, 0);
+  }
+}
+.primary-btn.attention {
+  animation: pulseAttention 1.4s ease-in-out infinite;
+}
+.resend-confirm-icon {
+  flex: 0 0 auto;
+  color: #39a935;
+}
+.round-icon.result-success {
+  background: #39a935;
+  color: #fff;
+}
+.round-icon.result-fail {
+  background: var(--red);
+  color: #fff;
+}
+.message-links {
+  font-size: 12px;
+  margin-top: 18px;
+}
+.success-icon {
+  background: #e4f5df;
+  color: #39a935;
+  font-size: 26px;
+}
+.button-link {
+  margin-top: 22px;
+}
+.notice {
+  font-size: 12px;
+  line-height: 1.5;
+}
+.error-notice {
+  color: var(--red);
+  margin: 2px 0;
+}
+
+/* ===== Banner thông báo trên form đăng nhập — đỏ = lỗi (sai thông tin /
+   khóa tạm), vàng = cảnh báo (chưa xác thực email), kèm nút hành động
+   tuỳ chọn, đúng 2 biến thể trong thiết kế SCR-02. ===== */
+.notice-banner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 1.5px solid transparent;
+  border-radius: 8px;
+  padding: 11px 13px;
+  font-size: 12.5px;
+  line-height: 1.4;
+  margin: 2px 0 10px;
+}
+.notice-banner[hidden] {
+  display: none;
+}
+.notice-banner .notice-icon {
+  flex: 0 0 auto;
+  width: 17px;
+  height: 17px;
+  display: flex;
+}
+.notice-banner .notice-text {
+  flex: 1;
+}
+.notice-banner .notice-action {
+  flex: 0 0 auto;
+  border: 0;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 6px 11px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.notice-banner.is-error {
+  background: #fdeceb;
+  border-color: var(--red);
+  color: #8a241c;
+}
+.notice-banner.is-error .notice-icon {
+  color: var(--red);
+}
+.notice-banner.is-warning {
+  background: #fffbef;
+  border-color: #e0c341;
+  color: #6b5a12;
+}
+.notice-banner.is-warning .notice-icon {
+  color: #e0a815;
+}
+.notice-banner.is-warning .notice-action {
+  background: #f6c945;
+  color: #241b15;
+}
+.notice-banner.is-warning .notice-action:hover {
+  background: #ecbb2f;
+}
+.compact-card {
+  margin: auto;
+}
+.input-error {
+  border-color: var(--red) !important;
+  box-shadow: 0 0 0 2px rgba(217, 48, 37, 0.12);
+}
+.round-icon.danger-icon {
+  background: #fbeae5;
+  color: var(--red);
+}
+.check-row {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 11px !important;
+  font-weight: 400 !important;
+}
+.check-row input {
+  accent-color: var(--orange);
+}
+.band-options,
+.skill-options {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 4px 0 12px;
+}
+.band-options label,
+.skill-options label {
+  background: #f6f0e7;
+  border-radius: 5px;
+  padding: 8px 10px;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.band-options input,
+.skill-options input {
+  accent-color: var(--orange);
+}
+@media (max-width: 600px) {
+  .auth-page {
+    padding: 20px 16px;
+  }
+  .brand img {
+    width: 125px;
+  }
+  .auth-card,
+  .register-card {
+    padding: 25px 20px;
+  }
+  .card-header {
+    margin: -25px -20px 20px;
+    padding: 22px 20px 18px;
+  }
+  .auth-hero {
+    padding: 36px 16px 32px;
+  }
+  .auth-hero-inner .brand {
+    top: 16px;
+    left: 16px;
+  }
+  .auth-form-section {
+    padding: 30px 16px 40px;
+  }
+  .message-card {
+    padding: 32px 22px;
+  }
+}

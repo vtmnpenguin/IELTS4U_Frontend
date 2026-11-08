@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mục tiêu học tập | IELTS4U</title>
+    <link rel="stylesheet" href="../css/auth.css" />
+  </head>
+  <body>
+    <main class="auth-page auth-page-full">
+      <section class="auth-hero">
+        <div class="auth-hero-inner">
+          <a class="brand" href="onboarding.html"
+            ><img src="../images/logo.png" alt="IELTS4U"
+          /></a>
+          <div class="auth-heading">
+            <div class="round-icon">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#8A9B83"
+                stroke-width="2.4"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M22 10L12 5 2 10l10 5 10-5z" />
+                <path d="M6 12v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5" />
+                <path d="M22 10v6" />
+              </svg>
+            </div>
+            <h1>MỤC TIÊU HỌC TẬP CỦA BẠN</h1>
+            <p>Giúp chúng tôi gợi ý lộ trình và dự đoán band phù hợp</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="auth-form-section">
+        <div class="auth-form-inner">
+          <form id="goalForm">
+            <label>Band mục tiêu</label>
+            <div class="band-options">
+              <label><input type="radio" name="band" value="5.0" />5.0</label
+              ><label><input type="radio" name="band" value="5.5" />5.5</label
+              ><label><input type="radio" name="band" value="6.0" />6.0</label
+              ><label
+                ><input
+                  type="radio"
+                  name="band"
+                  value="6.5"
+                  checked
+                />6.5</label
+              ><label><input type="radio" name="band" value="7.0" />7.0</label
+              ><label><input type="radio" name="band" value="7.5" />7.5</label
+              ><label><input type="radio" name="band" value="8.0" />8.0</label>
+            </div>
+            <label for="examDate">Ngày thi dự kiến (tùy chọn)</label
+            ><input id="examDate" type="date" />
+            <label for="level">Trình độ hiện tại</label
+            ><select id="level">
+              <option value="">Chọn trình độ</option>
+              <option>Mới bắt đầu</option>
+              <option>Cơ bản</option>
+              <option>Trung cấp</option>
+              <option>Khá</option>
+              <option>Nâng cao</option>
+            </select>
+            <label
+              >Kỹ năng ưu tiên
+              <span style="font-weight: 400"
+                >(được phép chọn nhiều)</span
+              ></label
+            >
+            <div class="skill-options">
+              <label><input type="checkbox" value="Listening" />Nghe</label
+              ><label><input type="checkbox" value="Speaking" />Nói</label
+              ><label><input type="checkbox" value="Reading" />Đọc</label
+              ><label><input type="checkbox" value="Writing" />Viết</label>
+            </div>
+            <button class="primary-btn" type="submit">Bắt đầu</button>
+          </form>
+          <p class="switch-page">
+            <a href="home.html">Bỏ qua, thiết lập sau</a>
+          </p>
+        </div>
+      </section>
+    </main>
+    <script src="../js/auth.js"></script>
+  </body>
+</html>

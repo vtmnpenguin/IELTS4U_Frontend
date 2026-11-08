@@ -1,0 +1,423 @@
+/* =========================================
+   1. THIẾT LẬP CHUNG
+========================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: 000000;
+  background-color: #f8f4ec;
+  overflow-x: hidden;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* =========================================
+   2. HEADER - LOGO
+========================================= */
+
+.header {
+  width: 100%;
+  height: 90px;
+  padding: 0 8%;
+
+  display: flex;
+  align-items: center;
+
+  background-color: #f8f4ec;
+}
+
+.logo {
+  display: inline-block;
+  text-decoration: none;
+}
+
+.logo img {
+  width: 200px;
+  height: auto;
+  object-fit: contain;
+}
+
+/* =========================================
+   3. KHU VỰC HERO
+========================================= */
+
+.main-content {
+  width: 100%;
+}
+
+/* Màn hình giới thiệu đầu tiên */
+
+.hero {
+  width: 100%;
+  min-height: calc(100vh - 90px);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 50px;
+
+  padding: 30px 8% 55px;
+}
+
+/* Hình gấu trúc */
+
+.hero-image {
+  width: 58%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hero-image img {
+  width: 100%;
+  max-width: 780px;
+  height: 75vh;
+
+  object-fit: contain;
+}
+
+/* Tiêu đề và nút */
+
+.hero-content {
+  width: 42%;
+  text-align: center;
+}
+
+.hero-content h1 {
+  color: 000000;
+
+  font-size: 46px;
+  font-weight: 800;
+  line-height: 1.35;
+
+  margin-bottom: 35px;
+}
+
+.hero-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+/* =========================================
+   4. BUTTON
+========================================= */
+
+.btn {
+  display: block;
+
+  width: 280px;
+  padding: 15px 20px;
+
+  border-radius: 10px;
+  text-align: center;
+  text-decoration: none;
+
+  font-size: 16px;
+  font-weight: 700;
+
+  transition: all 0.25s ease;
+}
+
+.btn-login {
+  background-color: #c77b32;
+  color: white;
+  border: 2px solid #c77b32;
+}
+
+.btn-login:hover {
+  background-color: #a85f25;
+  border-color: #a85f25;
+  transform: translateY(-3px);
+}
+
+.btn-register {
+  background-color: white;
+  color: #a85f25;
+  border: 2px solid #c77b32;
+}
+
+.btn-register:hover {
+  background-color: #f5e5d0;
+  transform: translateY(-3px);
+}
+
+/* =========================================
+   5. FEATURES - GIỚI THIỆU TÍNH NĂNG
+========================================= */
+
+.features {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* Mỗi tính năng là một khu vực rộng */
+
+.feature-row {
+  width: 100%;
+  min-height: 620px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 80px;
+
+  padding: 65px 10%;
+}
+
+/* Giữ thứ tự ảnh và chữ theo HTML */
+
+.feature-row.reverse {
+  flex-direction: row;
+}
+
+/* Nội dung chữ */
+
+.feature-text {
+  width: 45%;
+  text-align: left;
+}
+
+.feature-text h2 {
+  color: #c77b32;
+
+  font-size: 36px;
+  font-weight: 800;
+  line-height: 1.4;
+
+  margin-bottom: 22px;
+}
+
+.feature-text p {
+  color: 000000;
+
+  font-size: 18px;
+  line-height: 1.9;
+
+  max-width: 520px;
+}
+
+/* Hình minh họa */
+
+.feature-image {
+  width: 45%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.feature-image img {
+  width: 100%;
+  max-width: 520px;
+  max-height: 470px;
+
+  object-fit: contain;
+}
+
+/* =========================================
+   6. FOOTER
+========================================= */
+
+.footer {
+  width: 100%;
+  min-height: 220px;
+
+  background-color: #ddc3a0;
+
+  padding: 45px 8%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  gap: 40px;
+}
+
+.footer-brand,
+.footer-column {
+  flex: 1;
+}
+
+.footer-brand .logo img {
+  width: 170px;
+}
+
+.footer-brand p,
+.footer-column p {
+  color: 666666;
+  font-size: 14px;
+  line-height: 1.9;
+  margin-top: 10px;
+}
+
+.footer-column h3 {
+  color: #754a2d;
+  font-size: 18px;
+  margin-bottom: 12px;
+}
+
+/* =========================================
+   7. RESPONSIVE - TABLET
+========================================= */
+
+@media screen and (max-width: 900px) {
+  .header {
+    height: 75px;
+    padding: 0 5%;
+  }
+
+  .logo img {
+    width: 160px;
+  }
+
+  .hero {
+    min-height: calc(100vh - 75px);
+    gap: 25px;
+    padding: 25px 5%;
+  }
+
+  .hero-image {
+    width: 55%;
+  }
+
+  .hero-image img {
+    height: 60vh;
+  }
+
+  .hero-content {
+    width: 45%;
+  }
+
+  .hero-content h1 {
+    font-size: 34px;
+  }
+
+  .btn {
+    width: 220px;
+  }
+
+  .feature-row {
+    gap: 40px;
+    padding: 55px 6%;
+    min-height: 520px;
+  }
+
+  .feature-text h2 {
+    font-size: 29px;
+  }
+
+  .feature-text p {
+    font-size: 16px;
+  }
+
+  .feature-image img {
+    max-width: 400px;
+  }
+}
+
+/* =========================================
+   8. RESPONSIVE - ĐIỆN THOẠI
+========================================= */
+
+@media screen and (max-width: 600px) {
+  .header {
+    height: 65px;
+    padding: 0 5%;
+  }
+
+  .logo img {
+    width: 140px;
+  }
+
+  .hero {
+    min-height: auto;
+
+    flex-direction: column;
+    gap: 20px;
+
+    padding: 35px 6% 65px;
+  }
+
+  .hero-image,
+  .hero-content {
+    width: 100%;
+  }
+
+  .hero-image img {
+    height: auto;
+    max-height: 400px;
+  }
+
+  .hero-content h1 {
+    font-size: 30px;
+    margin-bottom: 25px;
+  }
+
+  .btn {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .feature-row,
+  .feature-row.reverse {
+    min-height: auto;
+
+    flex-direction: column;
+    gap: 25px;
+
+    padding: 55px 7%;
+  }
+
+  .feature-text,
+  .feature-image {
+    width: 100%;
+  }
+
+  .feature-text {
+    text-align: center;
+  }
+
+  .feature-text h2 {
+    font-size: 27px;
+  }
+
+  .feature-text p {
+    font-size: 15px;
+  }
+
+  .feature-image img {
+    max-width: 330px;
+    max-height: 320px;
+  }
+
+  .footer {
+    flex-direction: column;
+    padding: 35px 7%;
+    gap: 25px;
+  }
+
+  .footer-brand,
+  .footer-column {
+    width: 100%;
+  }
+}
